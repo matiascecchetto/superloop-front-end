@@ -1,0 +1,16 @@
+<div *ngIf="todo">
+  <h2>{{todo.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{todo.id}}</div>
+  <div><span>name: </span>{{todo.name}}</div>
+  <div><span>description: </span>{{todo.description}}</div>
+  <div><span>due date: </span>{{todo.dueDate | date:"MM/dd/yyyy"}}</div>
+  <div><span>status: </span>{{todo.status | statusPipe}}</div>
+
+  <div>
+      <label>name:
+        <input [(ngModel)]="todo.name" placeholder="name">
+      </label>
+  </div>
+</div>
+
+<button (click)="goBack()">Go Back</button>
