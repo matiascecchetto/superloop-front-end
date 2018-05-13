@@ -1,0 +1,23 @@
+commit ca908d77195ed1ada5f34c0660d46f22ebf36bf2 (HEAD -> master, origin/master)
+Author: Mat<C3><AD>as Cecchetto <matias.cec@gmail.com>
+Date:   Mon May 14 01:14:47 2018 +1000
+
+    Final review before handing in
+
+commit 207044cf4e1a3afd4bcfa432fe96d2ced4dbbf38
+Author: Mat<C3><AD>as Cecchetto <matias.cec@gmail.com>
+Date:   Thu May 10 11:40:50 2018 +1000
+
+    Added details view & mock of service data
+
+commit 15f168fd07d0c555bc2d070bac50c9572d4e6bf2
+Author: Mat<C3><AD>as Cecchetto <matias.cec@gmail.com>
+Date:   Tue May 8 16:19:09 2018 +1000
+
+    Generated TODOs component & changed structure
+
+commit 8352e3d3e636990b7c9d0219ccacd6a9863a91fb
+Author: Mat<C3><AD>as Cecchetto <matias.cec@gmail.com>
+Date:   Tue May 8 15:55:35 2018 +1000
+
+    initial commit
