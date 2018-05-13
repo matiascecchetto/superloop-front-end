@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add todo</h3>
+  </div>
+  <div class="panel-body">
+    <form #newForm="ngForm">
+    <label>Name</label>
+    <div class="form-group">
+      <input [(ngModel)]="todo.name" id="name" name="name" #name="ngModel" class="form-control" type="text" size="70" maxlength="70" required />
+    </div>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      This value is required!
+    </div>
+    <label>Description</label>
+    <div class="form-group">
+      <textarea [(ngModel)]="todo.description" id="description" name="description" class="form-control" rows="4" maxlength="250"></textarea>
+    </div>
+    <label>Due Date</label>
+    <div class="form-group">
+      <input [ngModel]="todo.dueDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.dueDate = $event" id="duedate" name="duedate" #duedate="ngModel" class="form-control" type="date" [min]="today" required />
+    </div>
+    <div [hidden]="duedate.valid || duedate.pristine" class="alert alert-danger">
+      This value is required!
+    </div>
+    <button type="button" class="btn btn-default" (click)="goBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back</button>
+    <button [disabled]="!newForm.form.valid" type="button" class="btn btn-default" (click)="add()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Add</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+{
+  "/v1/api/todos": {
+    "target": "http://localhost:8080",
+    "logLevel" : "debug",
+    "secure": false
+  }
+}

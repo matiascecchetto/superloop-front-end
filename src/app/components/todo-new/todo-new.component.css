@@ -1,18 +1,10 @@
-/* TodoDetailComponent's private CSS styles */
-.btn-default {
-  margin: 5px;
-}
-
+/* TodoNewComponent's private CSS styles */
 textarea {
     resize: none;
 }
 
-select[disabled] {
-  background-color: #eee;
-}
-
-.form-control {
-  width: 100%;
+.btn-default {
+  margin: 5px;
 }
 
 .ng-valid[required], .ng-valid.required  {

@@ -1,11 +1,53 @@
-<h2>All TODOs</h2>
-<ul class="todos">
-  <!-- <li *ngFor="let todo of todos" [class.selected]="todo === selectedTodo" (click)="onSelect(todo)"> -->
-  <li *ngFor="let todo of todos">
+<div class="bs-example" data-example-id="split-button-dropdown">
+   <div class="btn-group">
+      <a routerLink="/todos/new"><button type="button" class="btn btn-default btn-add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new</button></a>
+   </div>
+   <div class="btn-group">
+      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter</button> <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+      <ul class="dropdown-menu">
+        <li><a (click)="filterDone()">Done</a></li>
+        <li><a (click)="filterPending()">Pending</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a (click)="showAll()">Show All</a></li>
+      </ul>
+   </div>
+</div>
 
-    <a routerLink="/todos/{{todo.id}}">
-      <span class="badge">{{todo.id}}</span> {{todo.name}}
-    </a>
-  </li>
-</ul>
-<!-- <app-todo-detail [todo]="selectedTodo"></app-todo-detail> -->
+<div class="panel panel-default">
+   <div class="panel-heading">List of TODOs</div>
+   <div class="panel-body" *ngIf="!(todos && todos.length)">
+      <p>Oopsss! There's no TODOs to show...</p>
+   </div>
+   <table class="table" *ngIf="(todos && todos.length)">
+      <thead>
+         <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+         </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let todo of todos">
+           <tr *ngIf="displayAll || (displayDone && todo.status) || (!displayDone && !todo.status)">
+              <th scope="row"><a routerLink="/todos/{{todo.id}}">{{todo.id}}</a></th>
+              <td>{{todo.name}}</td>
+              <td>{{todo.description}}</td>
+              <td>{{todo.dueDate | date:"dd/MM/yyyy"}}</td>
+              <td *ngIf="!todo.status; else elseBlock">
+                <div class="btn-group" id="btn-status">
+                  <button type="button" class="btn btn-default">{{todo.status | statusPipe}}</button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only"></span> </button>
+                  <ul class="dropdown-menu">
+                    <li><a (click)="changeToDone(todo)">Mark as Done</a></li>
+                  </ul>
+                </div>
+              </td>
+              <ng-template #elseBlock>
+                <td style="padding-left:10px;">{{todo.status | statusPipe}}</td>
+              </ng-template>
+           </tr>
+         </ng-container>
+      </tbody>
+   </table>
+</div>

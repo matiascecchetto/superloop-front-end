@@ -6,15 +6,15 @@ import { DatePipe } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { TodoDetailComponent } from './todo-detail.component';
+import { TodoNewComponent } from './todo-new.component';
 
-describe('TodoDetailComponent', () => {
-  let component: TodoDetailComponent;
-  let fixture: ComponentFixture<TodoDetailComponent>;
+describe('TodoNewComponent', () => {
+  let component: TodoNewComponent;
+  let fixture: ComponentFixture<TodoNewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoDetailComponent ],
+      declarations: [ TodoNewComponent ],
       imports: [ FormsModule, RouterTestingModule, HttpClientModule ],
       providers: [ DatePipe ]
     })
@@ -22,7 +22,7 @@ describe('TodoDetailComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoDetailComponent);
+    fixture = TestBed.createComponent(TodoNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
